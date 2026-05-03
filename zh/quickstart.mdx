@@ -1,0 +1,85 @@
+---
+title: "Quickstart"
+description: "安装 Vibe Remote，启动设置向导，并从聊天 App 发送第一个任务。"
+---
+
+# Quickstart
+
+这篇指南会让你在 macOS 或 Linux 上启动 Vibe Remote，并配置一个聊天平台和一个编码 Agent。
+
+## 1. 安装 Vibe Remote
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.sh | bash
+```
+
+启动它：
+
+```bash
+vibe
+```
+
+浏览器设置向导会自动打开。如果没有自动打开，请使用终端里打印的本地 URL。
+
+## 2. 安装一个编码 Agent
+
+至少选择一个后端。
+
+OpenCode：
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+Claude Code：
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+Codex：
+
+```bash
+npm install -g @openai/codex
+```
+
+验证：
+
+```bash
+opencode --version || true
+claude --version || true
+codex --version || true
+```
+
+## 3. 配置设置向导
+
+在向导里选择：
+
+1. 聊天平台：Slack、Discord、Telegram、微信或 Lark / 飞书。
+2. Agent 后端：Claude Code、OpenCode 或 Codex。
+3. 项目工作目录。
+4. Vibe Remote 应该响应的 channel 或 chat。
+
+## 4. 发送冒烟测试消息
+
+在启用的聊天里发送：
+
+```text
+Say hello and tell me which project directory you are running in.
+```
+
+然后检查本地状态：
+
+```bash
+vibe status
+```
+
+## 5. 远程打开 Web UI
+
+如果你需要从手机、平板或远端机器访问本地 Web UI：
+
+```bash
+vibe remote
+```
+
+这会创建一个通往本地 Web UI 的安全 avibe.bot tunnel。它不会把你的代码或 Agent runtime 搬到云端。

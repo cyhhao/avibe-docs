@@ -1,0 +1,47 @@
+---
+title: "Slack"
+description: "把 Slack 用作本地编码 Agent 的远程终端。"
+---
+
+# Slack
+
+Slack 是目前 Vibe Remote 最成熟的平台，因为它支持 thread、Socket Mode、按钮、模态框和丰富的交互模式。
+
+## 你会得到什么
+
+- mention bot 来启动任务。
+- 在 Slack thread 里继续工作。
+- 把每个 thread 当成隔离会话。
+- 接收完成通知。
+- 不打开终端也能批准交互式提示。
+
+## 设置形态
+
+在 Vibe Remote 设置向导里选择 Slack，并提供向导要求的 Slack app 凭证。
+
+典型 Slack 要求包括：
+
+- 一个已安装到 workspace 的 Slack app。
+- 启用 Socket Mode。
+- 带有必要 scopes 的 bot token。
+- 用于 Socket Mode 的 app-level token。
+- bot 已被邀请到它应该响应的 channel。
+
+## 冒烟测试
+
+向导显示 Slack 连接健康后，在启用的 channel 里 mention bot：
+
+```text
+@Vibe Remote say hello and tell me which project directory you are running in
+```
+
+在 thread 里回复以继续同一个 Agent 会话。
+
+## 常见问题
+
+| 症状 | 检查 |
+| --- | --- |
+| Bot 不回复 | Bot 是否被邀请进 channel，channel 是否已启用 |
+| Socket Mode 失败 | App-level token 和 Socket Mode 设置 |
+| 事件到了但 Agent 没启动 | 所选后端 CLI 是否在 PATH 上 |
+| Thread 上下文丢失 | 是否在同一个 thread 里回复，而不是新发顶层消息 |

@@ -1,0 +1,39 @@
+---
+title: "远程 Web UI"
+description: "使用 vibe remote 从另一台设备打开本地 Vibe Remote Web UI。"
+---
+
+# 远程 Web UI
+
+本地 Web UI 通常在你的机器上以 localhost 地址运行。
+
+当你的手机、平板或远端工作站无法访问 localhost 时，运行：
+
+```bash
+vibe remote
+```
+
+## 它会做什么
+
+`vibe remote` 会引导你完成：
+
+- avibe.bot 登录。
+- 配对你的本地 Vibe Remote 实例。
+- 创建通往本地 Web UI 的安全 tunnel。
+- 从另一台设备打开 Web UI。
+
+## 它不会做什么
+
+它不会把你的编码 Agent 搬到云端。
+
+你的代码库、Agent 进程、凭证和工作目录都留在本地机器上。远程 URL 只用于访问 Web UI。
+
+## 什么时候使用
+
+在这些情况下使用 `vibe remote`：
+
+- 你想从手机配置 Vibe Remote。
+- Vibe Remote 正运行在远程开发机上。
+- 你离开运行 Agent 的机器后，仍想查看 dashboard。
+
+正常的聊天控制仍然可以直接使用 Slack、Discord、Telegram、微信或 Lark。

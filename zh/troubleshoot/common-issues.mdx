@@ -1,0 +1,78 @@
+---
+title: "常见问题"
+description: "修复常见 Vibe Remote 安装、平台和 Agent 设置问题。"
+---
+
+# 常见问题
+
+## `vibe` 命令找不到
+
+检查安装脚本是否打印了 PATH 指引。
+
+然后检查：
+
+```bash
+command -v vibe || true
+echo "$PATH"
+```
+
+如果是通过 `uv tool` 安装，tool bin 目录可能还没有加载到当前 shell。
+
+## Agent CLI 找不到
+
+验证所选后端：
+
+```bash
+command -v claude || true
+command -v opencode || true
+command -v codex || true
+```
+
+安装缺失的后端，或在设置向导里更新 CLI 路径。
+
+## 聊天 bot 沉默
+
+检查：
+
+- 平台凭证是否正确。
+- bot 或 app 是否已安装到 workspace/server/group。
+- channel 或 chat 是否已在 Vibe Remote 中启用。
+- 所选后端是否已启用。
+- 工作目录是否存在。
+
+然后运行：
+
+```bash
+vibe doctor
+```
+
+## Slack bot 沉默
+
+检查：
+
+- Socket Mode 是否启用。
+- Bot token scopes 是否正确。
+- App-level token 是否正确。
+- Bot 是否被邀请到 channel。
+- Channel 是否在 Vibe Remote 中被选中。
+
+## Telegram 群组沉默
+
+检查：
+
+- Bot privacy mode。
+- Bot 是否需要被 mention。
+- 群组是否出现在 discovered chats。
+- 群组是否在 Vibe Remote 中被选中。
+
+## 另一台设备无法访问 Web UI
+
+Localhost 只在同一台机器上可用。
+
+使用：
+
+```bash
+vibe remote
+```
+
+这会通过安全 avibe.bot tunnel 打开本地 Web UI。

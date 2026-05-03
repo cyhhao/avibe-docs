@@ -1,0 +1,35 @@
+---
+title: "Codex"
+description: "从聊天 App 通过 Vibe Remote 运行 Codex。"
+---
+
+# Codex
+
+Codex 是 Vibe Remote 用户使用 OpenAI 编码 Agent 的路径。
+
+## 安装
+
+```bash
+npm install -g @openai/codex
+```
+
+验证：
+
+```bash
+codex --version
+```
+
+## 在 Vibe Remote 中配置
+
+在设置向导里：
+
+1. 启用 Codex。
+2. 确认 `codex` CLI 路径。
+3. 选择默认工作目录。
+4. 把一个或多个聊天 channel 路由到 Codex。
+
+## 使用提示
+
+- 保持 OpenAI 凭证在本地。
+- 每个任务使用一个聊天 thread。
+- 给大型任务清晰的范围和验收标准。

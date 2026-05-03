@@ -1,0 +1,39 @@
+---
+title: "命令"
+description: "常用 Vibe Remote CLI 和聊天命令。"
+---
+
+# 命令
+
+## 本地 CLI
+
+| 命令 | 作用 |
+| --- | --- |
+| `vibe` | 启动 Vibe Remote 并打开本地 Web UI |
+| `vibe status` | 显示本地服务和配置状态 |
+| `vibe doctor` | 对常见设置问题运行诊断 |
+| `vibe remote` | 通过安全 avibe.bot tunnel 打开本地 Web UI |
+| `vibe stop` | 停止本地 Vibe Remote 服务 |
+| `vibe version` | 打印已安装版本 |
+
+## 聊天用法
+
+| 在聊天里 | 作用 |
+| --- | --- |
+| Mention bot | 启动任务或提问 |
+| 在 thread 里回复 | 继续同一个 Agent 会话 |
+| `/stop` | 在支持的平台停止当前会话 |
+| 在启用范围内直接发消息 | 把工作发给配置好的 Agent |
+
+## 定时和异步工作
+
+Vibe Remote 也支持 scheduled tasks 和 async hooks，用于希望人离开后任务继续推进的工作流。
+
+使用：
+
+```bash
+vibe task
+vibe hook send
+```
+
+具体形态取决于已安装版本和启用的平台。

@@ -1,0 +1,41 @@
+---
+title: "Claude Code"
+description: "从聊天 App 通过 Vibe Remote 运行 Claude Code。"
+---
+
+# Claude Code
+
+Claude Code 是深度推理、复杂重构和跨代码库任务的强默认选择。
+
+## 安装
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+验证：
+
+```bash
+claude --version
+```
+
+## 在 Vibe Remote 中配置
+
+在设置向导里：
+
+1. 启用 Claude Code。
+2. 确认 `claude` CLI 路径。
+3. 选择默认工作目录。
+4. 把一个或多个聊天 channel 路由到 Claude Code。
+
+## 使用提示
+
+- 保持 Claude Code 认证在本地。
+- 使用聊天 thread 隔离独立工作。
+- 在开始大型重构前，先用小任务验证权限和项目路径。
+
+## 冒烟测试
+
+```text
+Read the current project root and summarize the repository in three bullets.
+```
