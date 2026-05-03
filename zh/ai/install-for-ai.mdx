@@ -1,0 +1,129 @@
+---
+title: "AI Agent 安装指南"
+description: "为 Claude Code、Codex、OpenCode 和其他帮助用户安装 Vibe Remote 的 AI 编码 Agent 设计的设置 runbook。"
+---
+
+# AI Agent 安装指南
+
+本页面写给正在帮助人类安装 Vibe Remote 的 AI 编码 Agent。
+
+## 规则
+
+- 在选择聊天平台、Agent 后端、workspace 或凭证值之前先问用户。
+- 不要猜测 secret、bot token、app token、API key、workspace ID 或 chat ID。
+- 优先使用 `vibe` 启动的浏览器设置向导，不要手改配置文件。
+- 除非用户确认安全，否则不要重启已经在运行的本地 `vibe` 服务。
+- 保持本地优先。除非所选平台要求，不要暴露公开 webhook。
+
+## 1. 检查机器
+
+```bash
+uname -a
+command -v vibe || true
+command -v uv || true
+command -v claude || true
+command -v opencode || true
+command -v codex || true
+```
+
+在 Windows 上，除非用户明确想使用原生 PowerShell，否则优先使用 WSL。
+
+## 2. 安装 Vibe Remote
+
+macOS / Linux：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.sh | bash
+```
+
+Windows PowerShell：
+
+```powershell
+irm https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.ps1 | iex
+```
+
+验证：
+
+```bash
+vibe version
+vibe doctor
+```
+
+## 3. 安装一个编码 Agent
+
+先问用户想先使用哪个后端。
+
+推荐默认：
+
+- OpenCode 适合低摩擦设置。
+- Claude Code 适合更深入的代码库工作。
+- Codex 适合 OpenAI 工作流。
+
+OpenCode：
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+Claude Code：
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+Codex：
+
+```bash
+npm install -g @openai/codex
+```
+
+验证：
+
+```bash
+opencode --version || true
+claude --version || true
+codex --version || true
+```
+
+## 4. 启动设置向导
+
+```bash
+vibe
+```
+
+帮助用户选择：
+
+1. 聊天平台。
+2. Agent 后端。
+3. 项目工作目录。
+4. 应该启用的 channel 或 chat 范围。
+
+## 5. 可选远程 Web UI
+
+如果用户想从另一台设备打开本地 Web UI：
+
+```bash
+vibe remote
+```
+
+把它用于 Web UI 访问，不要用于直接暴露 Agent runtime。
+
+## 6. 冒烟测试
+
+让用户发送：
+
+```text
+Say hello and tell me which project directory you are running in.
+```
+
+然后验证：
+
+```bash
+vibe status
+```
+
+如果消息没有到达：
+
+```bash
+vibe doctor
+```

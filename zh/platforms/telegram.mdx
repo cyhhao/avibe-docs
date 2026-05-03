@@ -1,0 +1,44 @@
+---
+title: "Telegram"
+description: "把 Telegram chat 和 group 用作本地编码 Agent 的移动控制入口。"
+---
+
+# Telegram
+
+Telegram 是一种轻量方式，可以从手机或小群组控制编码 Agent。
+
+## 你会得到什么
+
+- 从 Telegram 向本地编码 Agent 发送任务。
+- 根据设置使用 DM 或群组。
+- 远程控制工作，但保持本地运行。
+
+## 设置形态
+
+在设置向导里选择 Telegram，并提供 BotFather 生成的 bot token。然后选择 Vibe Remote 发现到的 chat 或 group，让它在那里响应。
+
+## 群组和隐私模式
+
+如果你使用 Telegram 群组，请检查 bot privacy 行为。根据 bot 设置，除非调整隐私模式，否则 bot 可能只能看到命令或 mention。
+
+## 冒烟测试
+
+发送：
+
+```text
+Say hello and tell me which project directory you can see.
+```
+
+如果 bot 不回复，运行：
+
+```bash
+vibe doctor
+```
+
+## 常见问题
+
+| 症状 | 检查 |
+| --- | --- |
+| 群消息被忽略 | Bot privacy mode 和 mention 要求 |
+| Chat 没列出来 | 先给 bot 或群组发一条消息，再刷新 discovered chats |
+| Agent 缺失 | 所选后端 CLI 是否已安装并在 PATH 上可见 |

@@ -6,54 +6,114 @@
     "primary": "#111827"
   },
   "navigation": {
-    "groups": [
+    "languages": [
       {
-        "group": "Start here",
-        "pages": [
-          "index",
-          "quickstart",
-          "get-started/install",
-          "get-started/setup-wizard"
+        "language": "en",
+        "default": true,
+        "groups": [
+          {
+            "group": "Start here",
+            "pages": [
+              "index",
+              "quickstart",
+              "get-started/install",
+              "get-started/setup-wizard"
+            ]
+          },
+          {
+            "group": "Platforms",
+            "pages": [
+              "platforms/slack",
+              "platforms/discord",
+              "platforms/telegram",
+              "platforms/wechat-lark"
+            ]
+          },
+          {
+            "group": "Agents",
+            "pages": [
+              "agents/claude-code",
+              "agents/opencode",
+              "agents/codex"
+            ]
+          },
+          {
+            "group": "Concepts",
+            "pages": [
+              "concepts/local-first",
+              "concepts/thread-sessions",
+              "concepts/remote-ui",
+              "concepts/vision"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "reference/commands",
+              "ai/install-for-ai",
+              "troubleshoot/common-issues"
+            ]
+          },
+          {
+            "group": "Compare",
+            "pages": [
+              "compare/openclaw"
+            ]
+          }
         ]
       },
       {
-        "group": "Platforms",
-        "pages": [
-          "platforms/slack",
-          "platforms/discord",
-          "platforms/telegram",
-          "platforms/wechat-lark"
-        ]
-      },
-      {
-        "group": "Agents",
-        "pages": [
-          "agents/claude-code",
-          "agents/opencode",
-          "agents/codex"
-        ]
-      },
-      {
-        "group": "Concepts",
-        "pages": [
-          "concepts/local-first",
-          "concepts/thread-sessions",
-          "concepts/remote-ui",
-          "concepts/vision"
-        ]
-      },
-      {
-        "group": "Reference",
-        "pages": [
-          "reference/commands",
-          "ai/install-for-ai",
-          "troubleshoot/common-issues"
-        ]
-      },
-      {
-        "group": "Compare",
-        "pages": [
-          "compare/openclaw"
+        "language": "zh",
+        "groups": [
+          {
+            "group": "开始",
+            "pages": [
+              "zh/index",
+              "zh/quickstart",
+              "zh/get-started/install",
+              "zh/get-started/setup-wizard"
+            ]
+          },
+          {
+            "group": "平台",
+            "pages": [
+              "zh/platforms/slack",
+              "zh/platforms/discord",
+              "zh/platforms/telegram",
+              "zh/platforms/wechat-lark"
+            ]
+          },
+          {
+            "group": "Agent",
+            "pages": [
+              "zh/agents/claude-code",
+              "zh/agents/opencode",
+              "zh/agents/codex"
+            ]
+          },
+          {
+            "group": "概念",
+            "pages": [
+              "zh/concepts/local-first",
+              "zh/concepts/thread-sessions",
+              "zh/concepts/remote-ui",
+              "zh/concepts/vision"
+            ]
+          },
+          {
+            "group": "参考",
+            "pages": [
+              "zh/reference/commands",
+              "zh/ai/install-for-ai",
+              "zh/troubleshoot/common-issues"
+            ]
+          },
+          {
+            "group": "对比",
+            "pages": [
+              "zh/compare/openclaw"
+            ]
+          }
         ]
       }
     ]

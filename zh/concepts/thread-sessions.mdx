@@ -1,0 +1,49 @@
+---
+title: "Thread 会话"
+description: "把聊天 thread 用作隔离、可恢复的 Agent 会话。"
+---
+
+# Thread 会话
+
+在 Vibe Remote 里，一个聊天范围可以映射到一个 Agent 会话。
+
+实用规则是：
+
+```text
+Thread = session
+```
+
+开五个 thread，跑五个独立任务，并让它们的上下文保持隔离。
+
+## 为什么可行
+
+聊天 thread 是天然的工作单元：
+
+- 一个生产事故。
+- 一个 feature branch。
+- 一个重构。
+- 一次调查。
+- 一次后续 review。
+
+Agent 不需要一个自定义 dashboard 才能理解对话边界。聊天 App 已经给了它一个边界。
+
+## 最佳实践
+
+- 为新任务开启新 thread。
+- 在同一个 thread 里回复以继续同一个任务。
+- 使用简短、明确的验收标准。
+- 停止或归档不再有用的会话。
+
+## 示例
+
+顶层消息：
+
+```text
+Fix the login redirect bug. Reproduce it first, then patch the smallest root cause and run the relevant tests.
+```
+
+Thread 回复：
+
+```text
+Good. Also check whether the same redirect path affects signup.
+```

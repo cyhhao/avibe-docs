@@ -1,0 +1,34 @@
+---
+title: "Vibe Remote vs OpenClaw"
+description: "理解本地优先远程控制层和 always-on 个人 AI 助手之间的区别。"
+---
+
+# Vibe Remote vs OpenClaw
+
+Vibe Remote 和 OpenClaw 面向的是不同工作。
+
+Vibe Remote 是一个本地优先的远程控制层，用来控制你已经在运行的编码 Agent。OpenClaw 更接近一个 always-on 的个人 AI 助手。
+
+## 对比
+
+| 维度 | Vibe Remote | OpenClaw |
+| --- | --- | --- |
+| 设置 | 一行命令加 Web 设置向导 | Gateway、channels 和更多手动配置 |
+| Runtime | 聊天和你的 Agent CLI 之间的本地中间件 | 助手式编排层 |
+| 安全姿态 | 默认本地优先；正常情况下没有公开入站 endpoint | 更多组件和 gateway 暴露面 |
+| Token 开销 | 薄传输层；中间件没有额外推理 loop | 更多助手上下文和编排开销 |
+| 最适合 | 从聊天里做真实编码 Agent 工作 | 个人助手工作流 |
+
+## 关键区别
+
+Vibe Remote 不试图成为 Agent。
+
+它让 Claude Code、OpenCode 和 Codex 以原本的方式运行，同时给你一个聊天原生的远程控制界面。
+
+这让心智模型保持简单：
+
+```text
+chat app -> Vibe Remote -> coding agent
+```
+
+中间件不需要额外智能层就能转发工作。

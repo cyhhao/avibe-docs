@@ -1,0 +1,43 @@
+---
+title: "OpenCode"
+description: "从 Slack、Discord、Telegram、微信或 Lark 通过 Vibe Remote 运行 OpenCode。"
+---
+
+# OpenCode
+
+OpenCode 适合想要快速设置和可扩展本地编码 Agent 的用户，是一个低摩擦后端。
+
+## 安装
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+验证：
+
+```bash
+opencode --version
+```
+
+## 可选权限行为
+
+如果你理解权衡，并希望 Agent 工作时更少被打断，请按你的本地策略配置 OpenCode 权限。
+
+示例：
+
+```json
+{
+  "permission": "allow"
+}
+```
+
+只有在你能接受这种自主级别的仓库和机器上，才使用宽权限。
+
+## 在 Vibe Remote 中配置
+
+在设置向导里：
+
+1. 启用 OpenCode。
+2. 确认 `opencode` CLI 路径。
+3. 选择默认工作目录。
+4. 把一个或多个聊天 channel 路由到 OpenCode。

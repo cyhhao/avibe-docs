@@ -1,0 +1,49 @@
+---
+title: "Discord"
+description: "通过 Vibe Remote 把 Discord channel 连接到 Claude Code、OpenCode 或 Codex。"
+---
+
+# Discord
+
+Discord 适合个人服务器、社区服务器和轻量移动工作流。
+
+## 你会得到什么
+
+- 从 Discord 和本地编码 Agent 对话。
+- 保持不同 channel 的会话相互隔离。
+- 把选定 channel 路由到选定 Agent 后端。
+- 接收流式进展和完成更新。
+
+## 设置形态
+
+在设置向导里选择 Discord，并提供 Vibe Remote 要求的 bot token 和 server/channel 设置。
+
+典型 Discord 要求包括：
+
+- 一个 Discord application 和 bot。
+- Bot token。
+- bot 已添加到目标 server。
+- 你的流程所需的 Gateway intents。
+- 在 Vibe Remote Web UI 中选择 channel。
+
+## 冒烟测试
+
+在启用的 Discord channel 里发送短消息：
+
+```text
+Say hello and tell me what backend you are using.
+```
+
+然后在本地运行：
+
+```bash
+vibe status
+```
+
+## 常见问题
+
+| 症状 | 检查 |
+| --- | --- |
+| Bot 沉默 | Bot token、server 安装、channel 选择 |
+| 消息到了但没有回复 | Agent 后端是否启用，CLI 路径是否有效 |
+| 项目不对 | Channel 路由和默认工作目录 |

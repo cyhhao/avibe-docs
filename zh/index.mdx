@@ -1,0 +1,44 @@
+---
+title: "AVIBE 文档"
+description: "从 Slack、Discord、Telegram、微信和 Lark 运行本地 AI 编码 Agent。"
+---
+
+# 用聊天 App 指挥你的 AI Agent 军团
+
+Vibe Remote 把已经运行在你机器上的编码 Agent 连接到你已经在用的聊天 App。
+
+不用笔记本电脑。不用 IDE。只需 vibe。
+
+## Vibe Remote 是什么
+
+Vibe Remote 不是 Agent 框架，不是托管 coding VM，也不是夹在你和 Agent 之间的第二大脑。
+
+它是一个本地优先的远程控制层：
+
+- Slack、Discord、Telegram、微信和 Lark 变成终端。
+- Claude Code、OpenCode 和 Codex 以原本的方式运行。
+- 每个聊天 thread 都可以成为一个隔离的编码会话。
+- 你的代码和 Agent 进程留在你的机器上。
+- 当 localhost 不够用时，`vibe remote` 给你一个安全的远程 Web UI。
+
+## 快速开始
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.sh | bash && vibe
+```
+
+然后跟着浏览器里的设置向导走。
+
+## 常见入口
+
+- 新用户：从 [Quickstart](/zh/quickstart) 开始。
+- AI 助手在帮用户安装：使用 [AI Agent 安装指南](/zh/ai/install-for-ai)。
+- 选择聊天平台：从 [Slack](/zh/platforms/slack)、[Discord](/zh/platforms/discord) 或 [Telegram](/zh/platforms/telegram) 开始。
+- 需要从手机或远端服务器访问 Web UI：阅读 [远程 Web UI](/zh/concepts/remote-ui)。
+
+## 源码
+
+Vibe Remote 是开源项目：
+
+- GitHub：[cyhhao/vibe-remote](https://github.com/cyhhao/vibe-remote)
+- 产品：[avibe.bot](https://avibe.bot)

@@ -1,0 +1,43 @@
+---
+title: "本地优先架构"
+description: "理解哪些东西留在本地，哪些连接到聊天平台，以及 avibe.bot 的作用。"
+---
+
+# 本地优先架构
+
+Vibe Remote 运行在你的机器上。
+
+你的代码库、工作目录、Agent CLI、Agent 进程、日志和本地配置都留在本地。
+
+## 数据流
+
+```text
+你
+  -> 聊天 App
+  -> 你机器上的 Vibe Remote
+  -> Claude Code / OpenCode / Codex
+  -> Vibe Remote
+  -> 聊天 App
+  -> 你
+```
+
+Vibe Remote 是一个很薄的传输和编排层。它不会在你和编码 Agent 之间再加一个 LLM loop。
+
+## 为什么这很重要
+
+- 不需要托管 coding VM。
+- 正常聊天控制不需要公开入站端口。
+- Agent 看到的是你在终端里会看到的同一份本地项目状态。
+- 中间件 token 开销接近零，因为 Vibe Remote 不是额外的推理 Agent。
+
+## avibe.bot 用来做什么
+
+`avibe.bot` 是用于安全远程 Web UI 访问的托管控制平面。
+
+当你运行：
+
+```bash
+vibe remote
+```
+
+Vibe Remote 会帮助你把本地 Web UI 和一个通过认证的远程 URL 配对。浏览器流量通过 tunnel 到达你的本地机器；代码和 Agent runtime 仍然留在本地。

@@ -1,0 +1,74 @@
+---
+title: "安装 Vibe Remote"
+description: "在 macOS、Linux 或 Windows WSL 上安装 Vibe Remote。"
+---
+
+# 安装 Vibe Remote
+
+Vibe Remote 运行在你的代码和编码 Agent 所在的机器上。
+
+## macOS 和 Linux
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.sh | bash
+```
+
+验证安装：
+
+```bash
+vibe version
+vibe doctor
+```
+
+启动服务和设置向导：
+
+```bash
+vibe
+```
+
+## Windows
+
+Windows 推荐使用 WSL：
+
+- Windows 负责浏览器和聊天 App。
+- WSL 里的 Ubuntu 负责 Vibe Remote、Agent CLI 和代码仓库。
+
+在 WSL 的 Ubuntu 里运行：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.sh | bash
+vibe
+```
+
+也可以使用原生 PowerShell 安装，但对 Python、Node、Git 和编码 Agent CLI 来说，WSL 通常更顺：
+
+```powershell
+irm https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.ps1 | iex
+```
+
+## 安装脚本做什么
+
+安装脚本会：
+
+- 安装 `vibe` CLI。
+- 优先使用 PyPI，必要时回退到 GitHub。
+- 如果命令已安装但当前 shell 不可见，会打印 PATH 指引。
+- 把聊天平台凭证和 Agent 凭证留给设置向导处理。
+
+## 升级
+
+重新运行安装脚本：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.sh | bash
+```
+
+## 卸载
+
+只有在不再需要 Vibe Remote 配置时才删除本地状态：
+
+```bash
+vibe stop
+uv tool uninstall vibe-remote
+rm -rf ~/.vibe_remote
+```
