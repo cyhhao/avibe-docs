@@ -5,6 +5,11 @@
   "colors": {
     "primary": "#111827"
   },
+  "logo": {
+    "light": "/assets/logo.png",
+    "dark": "/assets/logo.png"
+  },
+  "favicon": "/assets/logo.png",
   "navigation": {
     "languages": [
       {
