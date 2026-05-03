@@ -1,0 +1,78 @@
+---
+title: "Common issues"
+description: "Fix common Vibe Remote installation, platform, and agent setup problems."
+---
+
+# Common issues
+
+## `vibe` command missing
+
+Check whether the installer printed PATH guidance.
+
+Then inspect:
+
+```bash
+command -v vibe || true
+echo "$PATH"
+```
+
+If installed through `uv tool`, the tool bin directory may not be loaded in your current shell.
+
+## Agent CLI not found
+
+Verify the selected backend:
+
+```bash
+command -v claude || true
+command -v opencode || true
+command -v codex || true
+```
+
+Install the missing backend or update the CLI path in the setup wizard.
+
+## Chat bot is silent
+
+Check:
+
+- The platform credential is correct.
+- The bot or app is installed into the workspace/server/group.
+- The channel or chat is enabled in Vibe Remote.
+- The selected backend is enabled.
+- The working directory exists.
+
+Then run:
+
+```bash
+vibe doctor
+```
+
+## Slack bot is silent
+
+Check:
+
+- Socket Mode is enabled.
+- Bot token scopes are correct.
+- App-level token is correct.
+- Bot is invited to the channel.
+- Channel is selected in Vibe Remote.
+
+## Telegram group is silent
+
+Check:
+
+- Bot privacy mode.
+- Whether the bot needs to be mentioned.
+- Whether the group appears in discovered chats.
+- Whether the group is selected in Vibe Remote.
+
+## Web UI is unreachable from another device
+
+Localhost only works on the same machine.
+
+Use:
+
+```bash
+vibe remote
+```
+
+This opens the local Web UI through a secure avibe.bot tunnel.

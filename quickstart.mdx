@@ -1,0 +1,85 @@
+---
+title: "Quickstart"
+description: "Install Vibe Remote, launch the setup wizard, and send your first task from chat."
+---
+
+# Quickstart
+
+This guide gets Vibe Remote running on macOS or Linux with one chat platform and one coding agent.
+
+## 1. Install Vibe Remote
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.sh | bash
+```
+
+Start it:
+
+```bash
+vibe
+```
+
+The browser setup wizard opens automatically. If it does not, use the local URL printed in the terminal.
+
+## 2. Install a coding agent
+
+Choose at least one backend.
+
+OpenCode:
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+Claude Code:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+Codex:
+
+```bash
+npm install -g @openai/codex
+```
+
+Verify:
+
+```bash
+opencode --version || true
+claude --version || true
+codex --version || true
+```
+
+## 3. Configure the setup wizard
+
+In the wizard, choose:
+
+1. A chat platform: Slack, Discord, Telegram, WeChat, or Lark / Feishu.
+2. An agent backend: Claude Code, OpenCode, or Codex.
+3. A project working directory.
+4. The channels or chats where Vibe Remote should respond.
+
+## 4. Send a smoke-test message
+
+In the enabled chat, send:
+
+```text
+Say hello and tell me which project directory you are running in.
+```
+
+Then check local status:
+
+```bash
+vibe status
+```
+
+## 5. Open the Web UI remotely
+
+If you need to access the local Web UI from a phone, tablet, or remote machine:
+
+```bash
+vibe remote
+```
+
+This creates a secure avibe.bot tunnel to your local Web UI. It does not move your code or agent runtime into the cloud.

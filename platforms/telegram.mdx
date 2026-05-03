@@ -1,0 +1,44 @@
+---
+title: "Telegram"
+description: "Use Telegram chats and groups as mobile controls for local coding agents."
+---
+
+# Telegram
+
+Telegram is a lightweight way to control coding agents from a phone or small group chat.
+
+## What you get
+
+- Send tasks to a local coding agent from Telegram.
+- Use DMs or groups depending on your setup.
+- Keep work local while controlling it remotely.
+
+## Setup shape
+
+In the setup wizard, choose Telegram and provide the bot token from BotFather. Then select the discovered chat or group where Vibe Remote should respond.
+
+## Groups and privacy mode
+
+If you use a Telegram group, check bot privacy behavior. Depending on your bot settings, the bot may only see commands or mentions unless privacy mode is adjusted.
+
+## Smoke test
+
+Send:
+
+```text
+Say hello and tell me which project directory you can see.
+```
+
+If the bot does not answer, run:
+
+```bash
+vibe doctor
+```
+
+## Common issues
+
+| Symptom | Check |
+| --- | --- |
+| Group messages ignored | Bot privacy mode and mention requirements |
+| Chat not listed | Send a message to the bot or group, then refresh discovered chats |
+| Agent missing | Selected backend CLI is installed and visible on PATH |

@@ -1,0 +1,74 @@
+---
+title: "Install Vibe Remote"
+description: "Install Vibe Remote on macOS, Linux, or Windows with WSL."
+---
+
+# Install Vibe Remote
+
+Vibe Remote runs locally on the machine where your code and coding agents live.
+
+## macOS and Linux
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.sh | bash
+```
+
+Verify the install:
+
+```bash
+vibe version
+vibe doctor
+```
+
+Start the service and setup wizard:
+
+```bash
+vibe
+```
+
+## Windows
+
+The recommended Windows path is WSL:
+
+- Use Windows for your browser and chat apps.
+- Use Ubuntu in WSL for Vibe Remote, agent CLIs, and your code repository.
+
+From Ubuntu in WSL:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.sh | bash
+vibe
+```
+
+Native PowerShell installation is available, but WSL is usually smoother for Python, Node, Git, and coding agent CLIs:
+
+```powershell
+irm https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.ps1 | iex
+```
+
+## What the installer does
+
+The installer:
+
+- Installs the `vibe` CLI.
+- Uses PyPI first and falls back to GitHub when needed.
+- Prints PATH guidance if the command is installed but not visible in the current shell.
+- Leaves your chat platform credentials and agent credentials for the setup wizard.
+
+## Upgrade
+
+Re-run the installer:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.sh | bash
+```
+
+## Uninstall
+
+Only remove local state if you no longer need your Vibe Remote configuration:
+
+```bash
+vibe stop
+uv tool uninstall vibe-remote
+rm -rf ~/.vibe_remote
+```

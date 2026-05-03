@@ -1,0 +1,43 @@
+---
+title: "OpenCode"
+description: "Run OpenCode through Vibe Remote from Slack, Discord, Telegram, WeChat, or Lark."
+---
+
+# OpenCode
+
+OpenCode is a low-friction backend for users who want fast setup and an extensible local coding agent.
+
+## Install
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+Verify:
+
+```bash
+opencode --version
+```
+
+## Optional permission behavior
+
+If you understand the tradeoff and want less interruption during agent work, configure OpenCode permissions according to your local policy.
+
+Example:
+
+```json
+{
+  "permission": "allow"
+}
+```
+
+Only use broad permissions in repositories and machines where you are comfortable with that level of autonomy.
+
+## Configure in Vibe Remote
+
+In the setup wizard:
+
+1. Enable OpenCode.
+2. Confirm the `opencode` CLI path.
+3. Choose a default working directory.
+4. Route one or more chat channels to OpenCode.

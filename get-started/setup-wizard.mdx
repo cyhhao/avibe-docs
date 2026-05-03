@@ -1,0 +1,51 @@
+---
+title: "Setup wizard"
+description: "Use the local Web UI to configure chat platforms, agent backends, and project routing."
+---
+
+# Setup wizard
+
+Run:
+
+```bash
+vibe
+```
+
+Vibe Remote starts a local Web UI and opens the setup wizard.
+
+## What you configure
+
+The wizard walks through:
+
+- Chat platform credentials and connection mode.
+- Agent backend selection.
+- Agent CLI paths.
+- Default working directory.
+- Channels or chats where Vibe Remote should respond.
+- Health checks for the selected setup.
+
+## Prefer the wizard over manual config
+
+Vibe Remote stores persistent config under your local user directory. You can inspect config files when debugging, but first-time setup should go through the wizard because it validates credentials and platform state.
+
+## Platform choice
+
+Use the chat app where you already work:
+
+| Platform | Best for |
+| --- | --- |
+| Slack | Team workflows, threads, Socket Mode, mature interactivity |
+| Discord | Community and personal servers |
+| Telegram | Lightweight personal and group bots |
+| WeChat | Mobile-first China workflows |
+| Lark / Feishu | China/Asia workspaces and enterprise chat |
+
+## Backend choice
+
+| Backend | Best for |
+| --- | --- |
+| Claude Code | Deep reasoning and complex codebase work |
+| OpenCode | Fast local setup and extensibility |
+| Codex | OpenAI coding workflows |
+
+You can enable multiple backends and route different channels to different agents.

@@ -1,0 +1,39 @@
+---
+title: "Remote Web UI"
+description: "Use vibe remote to open your local Vibe Remote Web UI from another device."
+---
+
+# Remote Web UI
+
+The local Web UI usually runs on your machine at a localhost address.
+
+When localhost is not reachable from your phone, tablet, or remote workstation, run:
+
+```bash
+vibe remote
+```
+
+## What it does
+
+`vibe remote` guides you through:
+
+- avibe.bot sign-in.
+- Pairing your local Vibe Remote instance.
+- Creating a secure tunnel to your local Web UI.
+- Opening the Web UI from another device.
+
+## What it does not do
+
+It does not move your coding agent into the cloud.
+
+Your codebase, agent process, credentials, and working directory stay on your local machine. The remote URL is for Web UI access.
+
+## When to use it
+
+Use `vibe remote` when:
+
+- You want to configure Vibe Remote from your phone.
+- Vibe Remote is running on a remote development box.
+- You need to check the dashboard away from the machine running the agent.
+
+For normal chat-based control, you can keep using Slack, Discord, Telegram, WeChat, or Lark directly.

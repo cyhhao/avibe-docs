@@ -1,0 +1,49 @@
+---
+title: "Thread sessions"
+description: "Use chat threads as isolated, resumable agent sessions."
+---
+
+# Thread sessions
+
+In Vibe Remote, a chat scope can map to an agent session.
+
+The practical rule:
+
+```text
+Thread = session
+```
+
+Start five threads, run five independent jobs, and keep their context separate.
+
+## Why it works
+
+Chat threads are a natural unit of work:
+
+- One production incident.
+- One feature branch.
+- One refactor.
+- One investigation.
+- One follow-up review.
+
+The agent does not need a custom dashboard to understand the conversation boundary. The chat app already gives it one.
+
+## Best practices
+
+- Start a new thread for a new task.
+- Reply in the same thread to continue the same task.
+- Use short, explicit acceptance criteria.
+- Stop or archive sessions that are no longer useful.
+
+## Example
+
+Top-level message:
+
+```text
+Fix the login redirect bug. Reproduce it first, then patch the smallest root cause and run the relevant tests.
+```
+
+Thread reply:
+
+```text
+Good. Also check whether the same redirect path affects signup.
+```

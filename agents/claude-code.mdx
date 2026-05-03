@@ -1,0 +1,41 @@
+---
+title: "Claude Code"
+description: "Run Claude Code through Vibe Remote from your chat app."
+---
+
+# Claude Code
+
+Claude Code is a strong default for deep reasoning, complex refactors, and codebase-wide tasks.
+
+## Install
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+Verify:
+
+```bash
+claude --version
+```
+
+## Configure in Vibe Remote
+
+In the setup wizard:
+
+1. Enable Claude Code.
+2. Confirm the `claude` CLI path.
+3. Choose a default working directory.
+4. Route one or more chat channels to Claude Code.
+
+## Usage notes
+
+- Keep your Claude Code authentication local.
+- Use chat threads to separate independent work.
+- Ask for small first tasks to verify permissions and project path before starting a large refactor.
+
+## Smoke test
+
+```text
+Read the current project root and summarize the repository in three bullets.
+```

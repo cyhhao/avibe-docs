@@ -1,0 +1,9 @@
+{
+  "name": "avibe-docs",
+  "private": true,
+  "scripts": {
+    "dev": "npx -y mint@4.2.546 dev",
+    "validate": "npx -y mint@4.2.546 validate",
+    "broken-links": "npx -y mint@4.2.546 broken-links"
+  }
+}

@@ -1,0 +1,49 @@
+---
+title: "Discord"
+description: "Connect Discord channels to Claude Code, OpenCode, or Codex through Vibe Remote."
+---
+
+# Discord
+
+Discord works well for personal servers, community servers, and lightweight mobile workflows.
+
+## What you get
+
+- Talk to a local coding agent from Discord.
+- Keep channel conversations separate.
+- Route selected channels to selected agent backends.
+- Receive streamed progress and completion updates.
+
+## Setup shape
+
+In the setup wizard, choose Discord and provide the bot token and server/channel settings requested by Vibe Remote.
+
+Typical Discord requirements include:
+
+- A Discord application and bot.
+- Bot token.
+- The bot added to the target server.
+- Gateway intents required by your chosen flow.
+- Channels selected in the Vibe Remote Web UI.
+
+## Smoke test
+
+Send a short message in an enabled Discord channel:
+
+```text
+Say hello and tell me what backend you are using.
+```
+
+Then run locally:
+
+```bash
+vibe status
+```
+
+## Common issues
+
+| Symptom | Check |
+| --- | --- |
+| Bot silent | Bot token, server install, channel selection |
+| Messages arrive but no response | Agent backend enabled and CLI path valid |
+| Wrong project | Channel routing and default working directory |

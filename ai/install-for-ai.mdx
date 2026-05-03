@@ -1,0 +1,129 @@
+---
+title: "Install for AI agents"
+description: "A setup runbook designed for Claude Code, Codex, OpenCode, and other AI coding agents helping a user install Vibe Remote."
+---
+
+# Install for AI agents
+
+This page is written for an AI coding agent helping a human install Vibe Remote.
+
+## Rules
+
+- Ask before choosing a chat platform, agent backend, workspace, or credential value.
+- Do not guess secrets, bot tokens, app tokens, API keys, workspace IDs, or chat IDs.
+- Prefer the browser setup wizard launched by `vibe` over hand-editing config files.
+- Do not restart an already-running local `vibe` service unless the user confirms it is safe.
+- Keep setup local-first. Do not expose public webhooks unless the selected platform requires it.
+
+## 1. Check the machine
+
+```bash
+uname -a
+command -v vibe || true
+command -v uv || true
+command -v claude || true
+command -v opencode || true
+command -v codex || true
+```
+
+On Windows, prefer WSL unless the user explicitly wants native PowerShell.
+
+## 2. Install Vibe Remote
+
+macOS / Linux:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.sh | bash
+```
+
+Windows PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.ps1 | iex
+```
+
+Verify:
+
+```bash
+vibe version
+vibe doctor
+```
+
+## 3. Install one coding agent
+
+Ask the user which backend they want first.
+
+Recommended default:
+
+- OpenCode for low-friction setup.
+- Claude Code for deeper codebase work.
+- Codex for OpenAI workflows.
+
+OpenCode:
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+Claude Code:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+Codex:
+
+```bash
+npm install -g @openai/codex
+```
+
+Verify:
+
+```bash
+opencode --version || true
+claude --version || true
+codex --version || true
+```
+
+## 4. Start the setup wizard
+
+```bash
+vibe
+```
+
+Help the user choose:
+
+1. Chat platform.
+2. Agent backend.
+3. Project working directory.
+4. Channel or chat scopes that should be enabled.
+
+## 5. Optional remote Web UI
+
+If the user wants to open the local Web UI from another device:
+
+```bash
+vibe remote
+```
+
+Use this for Web UI access, not for exposing the agent runtime directly.
+
+## 6. Smoke test
+
+Ask the user to send:
+
+```text
+Say hello and tell me which project directory you are running in.
+```
+
+Then verify:
+
+```bash
+vibe status
+```
+
+If messages do not arrive:
+
+```bash
+vibe doctor
+```

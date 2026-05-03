@@ -1,0 +1,43 @@
+---
+title: "Local-first architecture"
+description: "Understand what stays local, what connects to chat platforms, and what avibe.bot is for."
+---
+
+# Local-first architecture
+
+Vibe Remote runs on your machine.
+
+Your codebase, working directory, agent CLI, agent process, logs, and local configuration stay local.
+
+## Data flow
+
+```text
+You
+  -> chat app
+  -> Vibe Remote on your machine
+  -> Claude Code / OpenCode / Codex
+  -> Vibe Remote
+  -> chat app
+  -> You
+```
+
+Vibe Remote is a thin transport and orchestration layer. It does not add another LLM loop between you and the coding agent.
+
+## Why this matters
+
+- No hosted coding VM is required.
+- No public inbound port is required for normal chat control.
+- The agent sees the same local project state you would see in a terminal.
+- Middleware token overhead stays near zero because Vibe Remote is not acting as an extra reasoning agent.
+
+## What avibe.bot is for
+
+`avibe.bot` is the hosted control plane for secure remote Web UI access.
+
+When you run:
+
+```bash
+vibe remote
+```
+
+Vibe Remote helps pair your local Web UI with an authenticated remote URL. Browser traffic goes through the tunnel to your local machine; the code and agent runtime remain local.
