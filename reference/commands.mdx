@@ -1,0 +1,39 @@
+---
+title: "Commands"
+description: "Common Vibe Remote CLI and chat commands."
+---
+
+# Commands
+
+## Local CLI
+
+| Command | What it does |
+| --- | --- |
+| `vibe` | Start Vibe Remote and open the local Web UI |
+| `vibe status` | Show local service and configuration status |
+| `vibe doctor` | Run diagnostics for common setup issues |
+| `vibe remote` | Open the local Web UI through a secure avibe.bot tunnel |
+| `vibe stop` | Stop the local Vibe Remote service |
+| `vibe version` | Print the installed version |
+
+## Chat usage
+
+| In chat | What it does |
+| --- | --- |
+| Mention the bot | Start a task or ask a question |
+| Reply in thread | Continue the same agent session |
+| `/stop` | Stop the current session where supported |
+| Plain message in enabled scope | Send work to the configured agent |
+
+## Scheduled and async work
+
+Vibe Remote also supports scheduled tasks and async hooks for workflows where you want work to continue after you walk away.
+
+Use:
+
+```bash
+vibe task
+vibe hook send
+```
+
+The exact shape depends on the installed version and enabled platform.

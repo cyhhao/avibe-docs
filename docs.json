@@ -1,0 +1,61 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "AVIBE Docs",
+  "colors": {
+    "primary": "#111827"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Start here",
+        "pages": [
+          "index",
+          "quickstart",
+          "get-started/install",
+          "get-started/setup-wizard"
+        ]
+      },
+      {
+        "group": "Platforms",
+        "pages": [
+          "platforms/slack",
+          "platforms/discord",
+          "platforms/telegram",
+          "platforms/wechat-lark"
+        ]
+      },
+      {
+        "group": "Agents",
+        "pages": [
+          "agents/claude-code",
+          "agents/opencode",
+          "agents/codex"
+        ]
+      },
+      {
+        "group": "Concepts",
+        "pages": [
+          "concepts/local-first",
+          "concepts/thread-sessions",
+          "concepts/remote-ui",
+          "concepts/vision"
+        ]
+      },
+      {
+        "group": "Reference",
+        "pages": [
+          "reference/commands",
+          "ai/install-for-ai",
+          "troubleshoot/common-issues"
+        ]
+      },
+      {
+        "group": "Compare",
+        "pages": [
+          "compare/openclaw"
+        ]
+      }
+    ]
+  }
+}

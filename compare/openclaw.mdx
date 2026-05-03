@@ -1,0 +1,34 @@
+---
+title: "Vibe Remote vs OpenClaw"
+description: "Understand the difference between a local-first remote-control layer and an always-on personal AI assistant."
+---
+
+# Vibe Remote vs OpenClaw
+
+Vibe Remote and OpenClaw point at different jobs.
+
+Vibe Remote is a local-first remote-control layer for coding agents you already run. OpenClaw is closer to an always-on personal AI assistant.
+
+## Comparison
+
+| Area | Vibe Remote | OpenClaw |
+| --- | --- | --- |
+| Setup | One command plus Web setup wizard | Gateway, channels, and more manual configuration |
+| Runtime | Local middleware between chat and your agent CLI | Assistant-style orchestration layer |
+| Security posture | No normal inbound public endpoint; local-first by default | More moving parts and gateway surface |
+| Token overhead | Thin transport layer; no extra reasoning loop in the middleware | More assistant context and orchestration overhead |
+| Best for | Real coding-agent work from chat | Personal assistant workflows |
+
+## The key distinction
+
+Vibe Remote does not try to become the agent.
+
+It lets Claude Code, OpenCode, and Codex run as themselves while giving you a chat-native remote control surface.
+
+That keeps the mental model simple:
+
+```text
+chat app -> Vibe Remote -> coding agent
+```
+
+No extra intelligence layer is required for the middleware to relay work.

@@ -1,0 +1,47 @@
+---
+title: "Slack"
+description: "Use Slack as the remote terminal for local coding agents."
+---
+
+# Slack
+
+Slack is the most polished Vibe Remote platform today because it supports threads, Socket Mode, buttons, modals, and rich interaction patterns.
+
+## What you get
+
+- Mention the bot to start tasks.
+- Continue work in Slack threads.
+- Use each thread as an isolated session.
+- Receive completion notifications.
+- Approve interactive prompts without opening a terminal.
+
+## Setup shape
+
+In the Vibe Remote setup wizard, choose Slack and provide the Slack app credentials requested by the wizard.
+
+Typical Slack requirements include:
+
+- A Slack app installed into your workspace.
+- Socket Mode enabled.
+- A bot token with the required scopes.
+- An app-level token for Socket Mode.
+- The bot invited to the channels where it should respond.
+
+## Smoke test
+
+After the wizard reports a healthy Slack connection, mention the bot in an enabled channel:
+
+```text
+@Vibe Remote say hello and tell me which project directory you are running in
+```
+
+Reply in a thread to continue the same agent session.
+
+## Common issues
+
+| Symptom | Check |
+| --- | --- |
+| Bot does not answer | Bot is invited to the channel and the channel is enabled |
+| Socket Mode fails | App-level token and Socket Mode setting |
+| Events arrive but no agent starts | Selected backend CLI exists on PATH |
+| Thread loses context | Reply inside the same thread, not as a new top-level message |
