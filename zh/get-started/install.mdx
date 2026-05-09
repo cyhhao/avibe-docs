@@ -13,6 +13,8 @@ Vibe Remote 运行在你的代码和编码 Agent 所在的机器上。
 curl -fsSL https://avibe.bot/install.sh | bash
 ```
 
+开源脚本，源码在 [GitHub](https://github.com/cyhhao/vibe-remote/blob/master/install.sh) 上；如果想先审计再安装，看下面的"审计后再安装"小节。该短链只是到这个文件的 307 重定向。
+
 验证安装：
 
 ```bash
@@ -45,6 +47,18 @@ vibe
 ```powershell
 irm https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.ps1 | iex
 ```
+
+## 审计后再安装
+
+想在执行前先读一下脚本？先把它下到本地、看一遍再执行：
+
+```bash
+curl -fsSL https://avibe.bot/install.sh -o install.sh
+cat install.sh           # 或者：less install.sh
+bash install.sh
+```
+
+`https://avibe.bot/install.sh` 是到 GitHub raw 文件的 307 重定向，两个 URL 的内容完全一致。
 
 ## 安装脚本做什么
 

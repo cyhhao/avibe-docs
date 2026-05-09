@@ -13,6 +13,8 @@ Vibe Remote runs locally on the machine where your code and coding agents live.
 curl -fsSL https://avibe.bot/install.sh | bash
 ```
 
+Open source — [view the script on GitHub](https://github.com/cyhhao/vibe-remote/blob/master/install.sh) or [audit it before running](#audit-before-running). The short URL is a 307 redirect to that file.
+
 Verify the install:
 
 ```bash
@@ -45,6 +47,18 @@ Native PowerShell installation is available, but WSL is usually smoother for Pyt
 ```powershell
 irm https://raw.githubusercontent.com/cyhhao/vibe-remote/master/install.ps1 | iex
 ```
+
+## Audit before running
+
+Prefer to read the script before piping it to `bash`? Fetch it locally first, inspect it, then run it:
+
+```bash
+curl -fsSL https://avibe.bot/install.sh -o install.sh
+cat install.sh           # or: less install.sh
+bash install.sh
+```
+
+`https://avibe.bot/install.sh` is a 307 redirect to the same file on GitHub raw, so both URLs serve identical content.
 
 ## What the installer does
 
