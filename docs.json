@@ -26,6 +26,12 @@
             ]
           },
           {
+            "group": "avibe.bot Cloud",
+            "pages": [
+              "concepts/remote-ui"
+            ]
+          },
+          {
             "group": "Platforms",
             "pages": [
               "platforms/slack",
@@ -47,7 +53,6 @@
             "pages": [
               "concepts/local-first",
               "concepts/thread-sessions",
-              "concepts/remote-ui",
               "concepts/vision"
             ]
           },
@@ -80,6 +85,12 @@
             ]
           },
           {
+            "group": "avibe.bot Cloud",
+            "pages": [
+              "zh/concepts/remote-ui"
+            ]
+          },
+          {
             "group": "平台",
             "pages": [
               "zh/platforms/slack",
@@ -101,7 +112,6 @@
             "pages": [
               "zh/concepts/local-first",
               "zh/concepts/thread-sessions",
-              "zh/concepts/remote-ui",
               "zh/concepts/vision"
             ]
           },
