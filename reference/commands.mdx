@@ -7,14 +7,55 @@ description: "Common Vibe Remote CLI and chat commands."
 
 ## Local CLI
 
+### Service lifecycle
+
 | Command | What it does |
 | --- | --- |
 | `vibe` | Start Vibe Remote and open the local Web UI |
 | `vibe status` | Show local service and configuration status |
-| `vibe doctor` | Run diagnostics for common setup issues |
-| `vibe remote` | Open the local Web UI through a secure avibe.bot tunnel |
+| `vibe restart` | Restart all services |
+| `vibe restart --delay-seconds N` | Restart `N` seconds from now so an active conversation can reply first |
 | `vibe stop` | Stop the local Vibe Remote service |
+| `vibe doctor` | Run diagnostics for common setup issues |
 | `vibe version` | Print the installed version |
+
+### Remote Web UI
+
+| Command | What it does |
+| --- | --- |
+| `vibe remote` | Guided sign-in and pairing for the avibe.bot tunnel |
+| `vibe remote pair <key>` | Pair using a one-time key copied from avibe.bot |
+| `vibe remote status` | Show pairing and tunnel state (add `--json` for machine output) |
+| `vibe remote start` | Start the cloudflared tunnel after pairing |
+| `vibe remote stop` | Stop the tunnel without removing the pairing |
+
+### Updates
+
+| Command | What it does |
+| --- | --- |
+| `vibe check-update` | Check if a newer release is available |
+| `vibe upgrade` | Upgrade Vibe Remote to the latest release |
+
+### Utilities
+
+| Command | What it does |
+| --- | --- |
+| `vibe screenshot` | Capture the local desktop to a PNG file |
+
+### Scheduled and async work
+
+| Command | What it does |
+| --- | --- |
+| `vibe task add` | Save a recurring or one-off task that injects a prompt later |
+| `vibe task list` | List saved tasks (use `--brief` or `--all`) |
+| `vibe task show` / `update` / `pause` / `resume` / `run` / `remove` | Manage one saved task |
+| `vibe hook send` | Inject one prompt asynchronously without saving a task |
+| `vibe watch add` | Run a managed background waiter that delivers a follow-up when it succeeds |
+| `vibe watch list` / `show` / `pause` / `resume` / `remove` | Manage one watch |
+
+Each subcommand accepts `--help` for the full argument list, including
+`--session-key`, `--post-to`, `--deliver-key`, `--prompt`, `--prompt-file`,
+`--cron`, `--at`, and `--timezone` where applicable.
 
 ## Chat usage
 
@@ -24,16 +65,3 @@ description: "Common Vibe Remote CLI and chat commands."
 | Reply in thread | Continue the same agent session |
 | `/stop` | Stop the current session where supported |
 | Plain message in enabled scope | Send work to the configured agent |
-
-## Scheduled and async work
-
-Vibe Remote also supports scheduled tasks and async hooks for workflows where you want work to continue after you walk away.
-
-Use:
-
-```bash
-vibe task
-vibe hook send
-```
-
-The exact shape depends on the installed version and enabled platform.

@@ -37,6 +37,14 @@ After the wizard reports a healthy Slack connection, mention the bot in an enabl
 
 Reply in a thread to continue the same agent session.
 
+## Outbound proxy
+
+When the host running Vibe Remote cannot reach Slack directly, set `proxy_url`
+on the Slack config block from the Web UI. Both HTTP/HTTPS proxies and
+`socks5://` / `socks5h://` SOCKS5 proxies are supported. Saving the config
+block only persists the change; run `vibe restart --delay-seconds 60`
+afterwards so the new transport applies to live connections.
+
 ## Common issues
 
 | Symptom | Check |
@@ -45,3 +53,4 @@ Reply in a thread to continue the same agent session.
 | Socket Mode fails | App-level token and Socket Mode setting |
 | Events arrive but no agent starts | Selected backend CLI exists on PATH |
 | Thread loses context | Reply inside the same thread, not as a new top-level message |
+| Slack unreachable from host | `proxy_url` on Slack config; check firewall and TLS errors in logs |

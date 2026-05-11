@@ -40,6 +40,13 @@ Say hello and tell me what backend you are using.
 vibe status
 ```
 
+## 出站代理
+
+当运行 Vibe Remote 的机器无法直接访问 Discord 时，可在 Web UI 中给 Discord
+配置块设置 `proxy_url`。支持 HTTP/HTTPS 代理，以及 `socks5://` /
+`socks5h://` SOCKS5 代理。保存配置块只会持久化变更；之后执行
+`vibe restart --delay-seconds 60`，让新的传输方式应用到正在运行的连接上。
+
 ## 常见问题
 
 | 症状 | 检查 |
@@ -47,3 +54,4 @@ vibe status
 | Bot 沉默 | Bot token、server 安装、channel 选择 |
 | 消息到了但没有回复 | Agent 后端是否启用，CLI 路径是否有效 |
 | 项目不对 | Channel 路由和默认工作目录 |
+| 机器无法访问 Discord | Discord 配置上的 `proxy_url`；查看日志中的防火墙或 TLS 错误 |

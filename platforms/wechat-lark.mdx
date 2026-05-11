@@ -19,6 +19,15 @@ Lark / Feishu is useful for workspaces that already use enterprise chat, approva
 
 Use the setup wizard to configure credentials and select the chats or channels where Vibe Remote should respond.
 
+## Outbound proxy
+
+When the host running Vibe Remote cannot reach WeChat or Lark / Feishu
+directly, set `proxy_url` on the matching platform config block from the
+Web UI. Both HTTP/HTTPS proxies and `socks5://` / `socks5h://` SOCKS5
+proxies are supported. Saving the config block only persists the change;
+run `vibe restart --delay-seconds 60` afterwards so the new transport
+applies to live connections.
+
 ## Shared troubleshooting
 
 | Symptom | Check |
@@ -26,3 +35,4 @@ Use the setup wizard to configure credentials and select the chats or channels w
 | Messages do not arrive | Platform credential, app installation, selected chat scope |
 | Agent does not start | Backend enabled, CLI path valid, working directory exists |
 | Responses appear in the wrong place | Channel or chat routing settings |
+| WeChat / Lark unreachable from host | `proxy_url` on the matching config block; check firewall and TLS errors in logs |

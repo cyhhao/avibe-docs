@@ -40,6 +40,15 @@ Then run locally:
 vibe status
 ```
 
+## Outbound proxy
+
+When the host running Vibe Remote cannot reach Discord directly, set
+`proxy_url` on the Discord config block from the Web UI. Both HTTP/HTTPS
+proxies and `socks5://` / `socks5h://` SOCKS5 proxies are supported. Saving
+the config block only persists the change; run `vibe restart
+--delay-seconds 60` afterwards so the new transport applies to live
+connections.
+
 ## Common issues
 
 | Symptom | Check |
@@ -47,3 +56,4 @@ vibe status
 | Bot silent | Bot token, server install, channel selection |
 | Messages arrive but no response | Agent backend enabled and CLI path valid |
 | Wrong project | Channel routing and default working directory |
+| Discord unreachable from host | `proxy_url` on Discord config; check firewall and TLS errors in logs |

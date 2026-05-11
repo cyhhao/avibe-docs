@@ -35,6 +35,13 @@ Say hello and tell me which project directory you can see.
 vibe doctor
 ```
 
+## 出站代理
+
+当运行 Vibe Remote 的机器无法直接访问 Telegram 时，可在 Web UI 中给
+Telegram 配置块设置 `proxy_url`。支持 HTTP/HTTPS 代理，以及 `socks5://` /
+`socks5h://` SOCKS5 代理。保存配置块只会持久化变更；之后执行
+`vibe restart --delay-seconds 60`，让新的传输方式应用到正在运行的连接上。
+
 ## 常见问题
 
 | 症状 | 检查 |
@@ -42,3 +49,4 @@ vibe doctor
 | 群消息被忽略 | Bot privacy mode 和 mention 要求 |
 | Chat 没列出来 | 先给 bot 或群组发一条消息，再刷新 discovered chats |
 | Agent 缺失 | 所选后端 CLI 是否已安装并在 PATH 上可见 |
+| 机器无法访问 Telegram | Telegram 配置上的 `proxy_url`；查看日志中的防火墙或 TLS 错误 |

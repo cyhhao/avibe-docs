@@ -35,6 +35,15 @@ If the bot does not answer, run:
 vibe doctor
 ```
 
+## Outbound proxy
+
+When the host running Vibe Remote cannot reach Telegram directly, set
+`proxy_url` on the Telegram config block from the Web UI. Both HTTP/HTTPS
+proxies and `socks5://` / `socks5h://` SOCKS5 proxies are supported. Saving
+the config block only persists the change; run `vibe restart
+--delay-seconds 60` afterwards so the new transport applies to live
+connections.
+
 ## Common issues
 
 | Symptom | Check |
@@ -42,3 +51,4 @@ vibe doctor
 | Group messages ignored | Bot privacy mode and mention requirements |
 | Chat not listed | Send a message to the bot or group, then refresh discovered chats |
 | Agent missing | Selected backend CLI is installed and visible on PATH |
+| Telegram unreachable from host | `proxy_url` on Telegram config; check firewall and TLS errors in logs |

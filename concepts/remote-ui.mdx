@@ -37,3 +37,34 @@ Use `vibe remote` when:
 - You need to check the dashboard away from the machine running the agent.
 
 For normal chat-based control, you can keep using Slack, Discord, Telegram, WeChat, or Lark directly.
+
+## Pairing and the tunnel
+
+Pairing happens once per instance:
+
+1. Sign in at avibe.bot and create a remote-access bot.
+2. Copy the one-time pairing key (`vrp_…`).
+3. Paste it into `vibe remote`, or pass it directly: `vibe remote pair <key>`.
+
+After pairing, manage the tunnel with `vibe remote status`, `vibe remote start`,
+and `vibe remote stop`. The tunnel itself is run locally by `cloudflared`; the
+public URL only proxies traffic into your local Web UI.
+
+## Sign-in sessions
+
+The public URL is protected by an avibe.bot sign-in. After you sign in on a
+device:
+
+- The session lasts about 24 hours.
+- Activity past the half-life slides the session forward, so an active browser
+  rarely needs to sign in again.
+- Sign out from a device with the dashboard's sign-out action; the tunnel
+  itself keeps running for other devices and for future sign-ins.
+
+If a device reports the session as expired, sign in again at the public URL.
+
+## Stopping remote access
+
+`vibe remote stop` shuts down the cloudflared tunnel but keeps the pairing
+config so you can resume later with `vibe remote start`. Running `vibe remote`
+again with a new pairing key replaces the configuration.

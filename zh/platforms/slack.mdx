@@ -37,6 +37,13 @@ Slack 是目前 Vibe Remote 最成熟的平台，因为它支持 thread、Socket
 
 在 thread 里回复以继续同一个 Agent 会话。
 
+## 出站代理
+
+当运行 Vibe Remote 的机器无法直接访问 Slack 时，可在 Web UI 中给 Slack
+配置块设置 `proxy_url`。支持 HTTP/HTTPS 代理，以及 `socks5://` /
+`socks5h://` SOCKS5 代理。保存配置块只会持久化变更；之后执行
+`vibe restart --delay-seconds 60`，让新的传输方式应用到正在运行的连接上。
+
 ## 常见问题
 
 | 症状 | 检查 |
@@ -45,3 +52,4 @@ Slack 是目前 Vibe Remote 最成熟的平台，因为它支持 thread、Socket
 | Socket Mode 失败 | App-level token 和 Socket Mode 设置 |
 | 事件到了但 Agent 没启动 | 所选后端 CLI 是否在 PATH 上 |
 | Thread 上下文丢失 | 是否在同一个 thread 里回复，而不是新发顶层消息 |
+| 机器无法访问 Slack | Slack 配置上的 `proxy_url`；查看日志中的防火墙或 TLS 错误 |

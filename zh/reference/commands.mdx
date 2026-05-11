@@ -7,14 +7,55 @@ description: "常用 Vibe Remote CLI 和聊天命令。"
 
 ## 本地 CLI
 
+### 服务生命周期
+
 | 命令 | 作用 |
 | --- | --- |
 | `vibe` | 启动 Vibe Remote 并打开本地 Web UI |
 | `vibe status` | 显示本地服务和配置状态 |
-| `vibe doctor` | 对常见设置问题运行诊断 |
-| `vibe remote` | 通过安全 avibe.bot tunnel 打开本地 Web UI |
+| `vibe restart` | 重启所有服务 |
+| `vibe restart --delay-seconds N` | 延迟 `N` 秒重启，让进行中的对话先收到回复 |
 | `vibe stop` | 停止本地 Vibe Remote 服务 |
+| `vibe doctor` | 对常见设置问题运行诊断 |
 | `vibe version` | 打印已安装版本 |
+
+### 远程 Web UI
+
+| 命令 | 作用 |
+| --- | --- |
+| `vibe remote` | 引导式登录并配对 avibe.bot tunnel |
+| `vibe remote pair <key>` | 直接用从 avibe.bot 拿到的一次性 key 进行配对 |
+| `vibe remote status` | 查看配对和 tunnel 状态（加 `--json` 得到机器可读输出） |
+| `vibe remote start` | 配对完成后启动 cloudflared tunnel |
+| `vibe remote stop` | 停止 tunnel，但保留配对配置 |
+
+### 更新
+
+| 命令 | 作用 |
+| --- | --- |
+| `vibe check-update` | 检查是否有更新版本 |
+| `vibe upgrade` | 升级 Vibe Remote 到最新发布版 |
+
+### 实用工具
+
+| 命令 | 作用 |
+| --- | --- |
+| `vibe screenshot` | 把本地桌面截图保存为 PNG |
+
+### 定时和异步工作
+
+| 命令 | 作用 |
+| --- | --- |
+| `vibe task add` | 保存一个定时或一次性任务，让 Vibe Remote 在指定时间注入 prompt |
+| `vibe task list` | 列出已保存任务（可加 `--brief` 或 `--all`） |
+| `vibe task show` / `update` / `pause` / `resume` / `run` / `remove` | 管理单个已保存任务 |
+| `vibe hook send` | 一次性异步注入 prompt，但不保存任务定义 |
+| `vibe watch add` | 启动一个被管理的后台等待器，成功后再发送跟进消息 |
+| `vibe watch list` / `show` / `pause` / `resume` / `remove` | 管理单个 watch |
+
+每个子命令都支持 `--help` 查看完整参数，包括 `--session-key`、
+`--post-to`、`--deliver-key`、`--prompt`、`--prompt-file`、`--cron`、
+`--at` 和 `--timezone`（视命令而定）。
 
 ## 聊天用法
 
@@ -24,16 +65,3 @@ description: "常用 Vibe Remote CLI 和聊天命令。"
 | 在 thread 里回复 | 继续同一个 Agent 会话 |
 | `/stop` | 在支持的平台停止当前会话 |
 | 在启用范围内直接发消息 | 把工作发给配置好的 Agent |
-
-## 定时和异步工作
-
-Vibe Remote 也支持 scheduled tasks 和 async hooks，用于希望人离开后任务继续推进的工作流。
-
-使用：
-
-```bash
-vibe task
-vibe hook send
-```
-
-具体形态取决于已安装版本和启用的平台。

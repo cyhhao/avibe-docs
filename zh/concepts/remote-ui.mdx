@@ -37,3 +37,31 @@ vibe remote
 - 你离开运行 Agent 的机器后，仍想查看 dashboard。
 
 正常的聊天控制仍然可以直接使用 Slack、Discord、Telegram、微信或 Lark。
+
+## 配对和 tunnel
+
+配对每个实例只需做一次：
+
+1. 在 avibe.bot 登录并新建一个 remote-access bot。
+2. 复制一次性配对 key（`vrp_…`）。
+3. 把它粘贴到 `vibe remote`，或者直接传入：`vibe remote pair <key>`。
+
+配对完成后，用 `vibe remote status`、`vibe remote start` 和
+`vibe remote stop` 管理 tunnel。tunnel 本身由本地 `cloudflared` 进程承载，
+公网 URL 只是把流量代理到本地 Web UI。
+
+## 登录会话
+
+公网 URL 受 avibe.bot 登录保护。在某台设备上登录后：
+
+- 会话有效期约为 24 小时。
+- 过半有效期后还在活动，会话会自动续期，正在使用的浏览器基本不需要再次登录。
+- 想退出当前设备时，使用 dashboard 中的退出操作；tunnel 仍会为其他设备和后续登录继续运行。
+
+如果某台设备显示会话已过期，重新在公网 URL 上登录即可。
+
+## 停止远程访问
+
+`vibe remote stop` 会关闭 cloudflared tunnel，但保留配对配置，
+之后可以用 `vibe remote start` 恢复。再次运行 `vibe remote` 并粘贴新的
+配对 key 会替换原有配置。
