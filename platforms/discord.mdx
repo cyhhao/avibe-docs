@@ -44,7 +44,8 @@ vibe status
 
 When the host running Vibe Remote cannot reach Discord directly, set
 `proxy_url` on the Discord config block from the Web UI. Both HTTP/HTTPS
-proxies and `socks5://` / `socks5h://` SOCKS5 proxies are supported. Saving
+proxies and SOCKS proxies are supported (any `socks*://` scheme — `socks4`,
+`socks4a`, `socks5`, or `socks5h`). Saving
 the config block only persists the change; run `vibe restart
 --delay-seconds 60` afterwards so the new transport applies to live
 connections.
